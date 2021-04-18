@@ -1,0 +1,88 @@
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="nav-close"><i class="fa fa-times-circle"></i>
+    </div>
+    <div class="sidebar-collapse">
+        <ul class="nav" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element">
+                    <span><img alt="image" class="img-circle"
+                                    src="${ctxPath}/static/img/girl.gif"
+                               width="64px" height="64px"/></span>
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="clear">
+                       <span class="block m-t-xs"><strong class="font-bold">${session.admin.name}</strong></span>
+                        <span class="text-muted text-xs block">${session.admin.name}<b class="caret"></b></span>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu m-t-xs">
+                        <li><a class="J_menuItem" href="${ctxPath}/mgr/user_info">个人资料</a></li>
+                        <li><a class="J_menuItem" href="${ctxPath}/mgr/user_chpwd">修改密码</a></li>
+                        <li class="divider"></li>
+                        <li><a href="${ctxPath}/logout">安全退出</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="logo-element">V
+                </div>
+            </li>
+            
+            <li>
+                <a class="J_menuItem" href="${ctxPath}/hotelUser" name="tabMenuItem">
+                    <i class="fa fa-user"></i>
+                    <span class="nav-label">顾客管理</span>
+                </a>
+            </li>
+            <li>
+                <a class="J_menuItem" href="${ctxPath}/hotelTable" name="tabMenuItem">
+                    <i class="fa fa-user"></i>
+                    <span class="nav-label">餐桌管理</span>
+                </a>
+            </li>
+            <li>
+                <a class="J_menuItem" href="${ctxPath}/hotelAdmin" name="tabMenuItem">
+                    <i class="fa fa-user"></i>
+                    <span class="nav-label">管理员管理</span>
+                </a>
+            </li>
+            <li>
+                <a class="J_menuItem" href="${ctxPath}/hotelRoom" name="tabMenuItem">
+                    <i class="fa fa-user"></i>
+                    <span class="nav-label">客房管理</span>
+                </a>
+            </li>
+            <li>
+                <a class="J_menuItem" href="${ctxPath}/hotelRoomType" name="tabMenuItem">
+                    <i class="fa fa-user"></i>
+                    <span class="nav-label">房型管理</span>
+                </a>
+            </li>
+            <li>
+                <a class="J_menuItem" href="${ctxPath}/hotelOrder" name="tabMenuItem">
+                    <i class="fa fa-user"></i>
+                    <span class="nav-label">订单管理</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="J_menuItem" href="${ctxPath}/hotelFood" name="tabMenuItem">
+                    <i class="fa fa-user"></i>
+                    <span class="nav-label">特色菜管理</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="J_menuItem" href="${ctxPath}/hotelComment" name="tabMenuItem">
+                    <i class="fa fa-user"></i>
+                    <span class="nav-label">留言板管理</span>
+                </a>
+            </li>
+            <li>
+                <a class="J_menuItem" href="${ctxPath}/index/statistic" name="tabMenuItem">
+                    <i class="fa fa-user"></i>
+                    <span class="nav-label">酒店收入统计</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+</nav>

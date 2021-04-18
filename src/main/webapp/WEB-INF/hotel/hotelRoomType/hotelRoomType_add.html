@@ -1,0 +1,31 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+            <form id="addRoomTypeForm"enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-sm-6 b-r">
+                            <#input id="id" name="主键id" underline="true"/>
+                            <#input id="price" name="房价" underline="true"/>
+                            <#input id="type" name="类型(1.大床;2.单人;)"/>
+                </div>
+
+                <div class="col-sm-6">
+                            <#input id="picture" file="file" readonly="readonly" name="图片" underline="true"/>
+                            <#input id="description" name="描述" underline="true"/>
+                </div>
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="HotelRoomTypeInfoDlg.addSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="HotelRoomTypeInfoDlg.close()"/>
+                </div>
+            </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/hotel/hotelRoomType/hotelRoomType_info.js"></script>
+@}

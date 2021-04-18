@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+
+    <!-- Page Title -->
+    <title>V酒店 - Hotel Booking HTML5 Template</title>
+
+    <!-- Icon fonts -->
+    <link href="/static/css/front/themify-icons.css" rel="stylesheet">
+    <link href="/static/css/front/flaticon.css" rel="stylesheet">
+    <link href="/static/css/font-awesome.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://www.jq22.com/jquery/bootstrap-3.3.4.css">
+
+    <!-- Plugins for this template -->
+    <link href="/static/css/front/animate.css" rel="stylesheet">
+    <link href="/static/css/front/owl.carousel.css" rel="stylesheet">
+    <link href="/static/css/front/owl.theme.css" rel="stylesheet">
+    <link href="/static/css/front/slick.css" rel="stylesheet">
+    <link href="/static/css/front/slick-theme.css" rel="stylesheet">
+    <link href="/static/css/front/odometer-theme-default.css" rel="stylesheet">
+    <link href="/static/css/front/owl.transitions.css" rel="stylesheet">
+    <link href="/static/css/front/jquery.fancybox.css" rel="stylesheet">
+    <link href="/static/css/front/magnific-popup.css" rel="stylesheet">
+    <link href="/static/css/front/nice-select.css" rel="stylesheet">
+    <link href="/static/css/front/bootstrap-datepicker.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/css/front/style.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="home">
+
+    <!-- start page-wrapper -->
+    <div class="page-wrapper">
+
+         <!-- start preloader -->
+           <div class="preloader">
+                <div class="spinner">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+            </div>
+            <!-- end preloader -->
+        <!-- Start header -->
+        <header id="header" class="site-header header-style-3">
+            <nav class="navigation navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="open-btn">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="index.html"><img src="/static/images/logo-2.png" alt=""></a>
+                    </div>
+
+                    <div class="cart-search-contact">
+                        <div class="get-quote">
+                            <a href="#"><i class="fi flaticon-support-1"></i>Call : +0123-456-789</a>
+                        </div>
+                        <div class="header-search-form-wrapper">
+                            <button class="search-toggle-btn"><i class="ti-search"></i></button>
+                            <div class="header-search-form">
+                                <form>
+                                    <div>
+                                        <input type="text" class="form-control" placeholder="Search here...">
+                                        <button type="submit"><i class="fi flaticon-search"></i></button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="mini-cart">
+                            @if(session.user == null){
+                            <button class="cart-toggle-btn"> <i class="fi flaticon-user" style="color: red;"></i></button>
+                            <div class="mini-cart-content">
+                                    <div class="mini-cart-title">
+                                        <p>用户登录</p>
+                                    </div>
+                                <form id="loginForm">
+                                <div class="mini-cart-items">
+                                        <div class="form-group">
+                                            <input type="text" name="name" class="form-control" placeholder="用户名" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" name="password" class="form-control" placeholder="密码" required>
+                                        </div>
+                                        <div class="form-group" style="float: left;">
+                                            <div class="col-sm-8" style="padding-left: 0px; padding-right: 0px;">
+                                                <input class="form-control" type="text" name="kaptcha" placeholder="验证码" required>
+                                            </div>
+                                            <div class="col-sm-4" style="padding-left: 0px; padding-right: 0px;">
+                                                <img src="${ctxPath}/index/kaptcha" id="kaptcha" width="100%" height="100%"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="mini-cart-action clearfix">
+                                        <a href="#" id="register" class="theme-btn">注册</a>
+                                        <a href="#" id="submitLogin" class="theme-btn-s4">登录</a>
+                                    </div>
+                            </div>
+                            @}
+                            @else{
+                            <button class="cart-toggle-btn"> <i class="fi flaticon-user" style="color: green;"></i></button>
+                            <div class="mini-cart-content">
+                                <div class="mini-cart-title">
+                                    <p>${session.user.name}，你好</p>
+                                </div>
+                                <div class="mini-cart-items" align="center">
+                                    <div class="form-group">
+                                        <i class="fi flaticon-comment"></i>
+                                        <a type="text"  id="userOrder">订单中心</a>
+                                    </div>
+                                    <div class="form-group">
+                                        <i class="fi flaticon-key"></i>
+                                        <a type="text" id="modifyPassword">修改密码</a>
+                                    </div>
+                                    <div class="form-group">
+                                        <i class="fa fa-sign-out"></i>
+                                        <a type="text" id="logOut">退出登录</a>
+                                    </div>
+                                </div>
+                            </div>
+                            @}
+                        </div>
+                    </div>
+                </div><!-- end of container -->
+            </nav>
+        </header>
+        <!-- end of header -->
+        <!-- start of hero -->
+        <section class="hero hero-style-3">
+            <div class="hero-slider">
+                <div class="slide">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col col-md-6 col-sm-12 col-12 slide-caption">
+                                <div class="slide-title">
+                                    <h2>Varaus 酒店 & 餐馆</h2>
+                                </div>
+                                <div class="slide-subtitle">
+                                    <p>Make Your Life Better and Bright!  You must trip with Us!</p>
+                                </div>
+                                <div class="btns">
+                                    <a href="#" data-toggle="modal" data-target="#roomModal" class="theme-btn-s2">立即订房</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-shape">
+                        <img src="/static/images/slider/hero-shape.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end of hero slider -->
+        <!-- 客房预约入住-start -->
+        <div class="wpo-select-section-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="wpo-select-wrap">
+                            <div class="wpo-select-area">
+                                <form class="clearfix">
+                                    <div class="select-sub">
+                                        <span><i class="fi flaticon-calendar"></i>入 - 住</span>
+                                        <div class="form-group">
+                                            <div id="filterDate">
+                                              <!-- Datepicker as text field -->         
+                                              <div class="input-group date" data-date-format="dd.mm.yyyy">
+                                                <input  type="text" class="form-control" placeholder="01.06.2020">
+                                                <div class="input-group-addon" >
+                                                  <span class="ti-angle-down"></span>
+                                                </div>
+                                              </div>
+                                            </div>    
+                                        </div>
+                                    </div>
+                                    <div class="select-sub">
+                                        <span><i class="fi flaticon-calendar"></i>退 - 房</span>
+                                        <div class="form-group">
+                                            <div id="filterDate2">
+                                              <!-- Datepicker as text field -->         
+                                              <div class="input-group date" data-date-format="dd.mm.yyyy">
+                                                <input  type="text" class="form-control" placeholder="01.06.2020">
+                                                <div class="input-group-addon" >
+                                                  <span class="ti-angle-down"></span>
+                                                </div>
+                                              </div>
+                                            </div>    
+                                        </div>
+                                    </div>
+                                    <div class="select-sub">
+                                        <span> <i class="fi flaticon-user"></i> 人数</span>
+                                        <select class="select wide">
+                                            <option>02</option>
+                                            <option>01</option>
+                                            <option>03</option>
+                                            <option>04</option>
+                                            <option>05</option>
+                                            <option>06</option>
+                                        </select>
+                                    </div>
+                                    <div class="select-sub">
+                                        <button class="theme-btn-s2 btn btn-primary btn-lg" type="button"
+                                                data-toggle="modal" data-target="#roomModal">预订</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 模态框（Modal） -->
+            <div class="modal fade" id="roomModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form id="orderForm1" action="/hotelOrder/placeOrder">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                &times;
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel">
+                                预订房间
+                            </h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <input type="text" name="orderType" value="订房" hidden>
+                                <label>姓名</label>
+                                @if(session.user == null){
+                                <input type="text" name="name" readonly="readonly" value="请登录" class="form-control" placeholder="姓名">
+                                @}
+                                @else{
+                                <input type="text" name="name" value="${session.user.name}" class="form-control" placeholder="姓名" readonly="readonly">
+                                @}
+                            </div>
+                            <div class="form-group">
+                                <label>身份证</label>
+                                <input type="text" name="cardId" class="form-control" id="idCardNum" placeholder="身份证">
+                            </div>
+                            <div class="form-group">
+                                <label>房型</label>
+                                <select name="roomType" class="select wide">
+                                    @for(t in AllRoomType){
+                                    <option>${t.type}-${t.price}</option>
+                                    @}
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>入-住</label>
+                                <div id="bookInDate">
+                                    <div class="input-group date" data-date-format="dd.mm.yyyy">
+                                        <input readonly type="text" name="subscribetime" class="form-control" placeholder="01.06.2020">
+                                        <div class="input-group-addon" >
+                                            <span class="ti-angle-down"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>退-房</label>
+                                <div id="bookOutDate">
+                                    <div class="input-group date" data-date-format="dd.mm.yyyy">
+                                        <input readonly type="text" name="departtime" class="form-control" placeholder="01.06.2020">
+                                        <div class="input-group-addon" >
+                                            <span class="ti-angle-down"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" id="closeBtn1" class="btn btn-default" data-dismiss="modal">关闭
+                            </button>
+                            <button type="button" onclick="return submitOrder('orderForm1','closeBtn1');" class="btn btn-primary">
+                                提交
+                            </button>
+                        </div>
+                        </form>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal -->
+            </div>
+            <div class="modal fade" id="tabModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form id="orderForm2" action="/hotelOrder/placeOrder">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                    &times;
+                                </button>
+                                <h4 class="modal-title">
+                                    预订餐位
+                                </h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <input type="text" name="orderType" value="订餐" hidden>
+                                    <label>姓名</label>
+                                    @if(session.user == null){
+                                    <input type="text" name="name" value="请登录" class="form-control" readonly="readonly" placeholder="姓名">
+                                    @}
+                                    @else{
+                                    <input type="text" name="name" value="${session.user.name}" class="form-control" placeholder="姓名" readonly="readonly">
+                                    @}
+                                </div>
+                                <div class="form-group">
+                                    <label>身份证</label>
+                                    <input type="text" name="cardId" class="form-control" placeholder="身份证">
+                                </div>
+                                <div class="form-group">
+                                    <label>餐桌</label>
+                                    <select name="tabName" class="select wide">
+                                        @for(t in tabs){
+                                        <option>${t.tabName}-${t.tabPrice}-${t.status}</option>
+                                        @}
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>开-吃</label>
+                                    <div>
+                                        <div class="input-group date" data-date-format="dd.mm.yyyy">
+                                            <input readonly type="text" name="subscribetime" class="form-control" placeholder="01.06.2020">
+                                            <div class="input-group-addon" >
+                                                <span class="ti-angle-down"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>打-包</label>
+                                    <div>
+                                        <div class="input-group date" data-date-format="dd.mm.yyyy">
+                                            <input readonly type="text" name="departtime" class="form-control" placeholder="01.06.2020">
+                                            <div class="input-group-addon" >
+                                                <span class="ti-angle-down"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>人数</label>
+                                    <div id="peopleCount">
+                                        <select class="select wide">
+                                            <option>02</option>
+                                            <option>01</option>
+                                            <option>03</option>
+                                            <option>04</option>
+                                            <option>05</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" id="closeBtn2" class="btn btn-default" data-dismiss="modal">关闭
+                                </button>
+                                <button type="button" onclick="return submitOrder('orderForm2','closeBtn2');" class="btn btn-primary">
+                                    提交
+                                </button>
+                            </div>
+                        </form>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal -->
+            </div>
+        </div>
+        <!-- 客房预约入住-end -->
+
+        <!-- .酒店特色菜板块 -start -->
+        <div class="destination-area-2 section-padding">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="destination-text">
+                            <div class="wpo-section-title">
+                                <h2>酒店特色菜</h2>
+                            </div>
+                            <p>不仅美味，更是久久回味，绿色食品，既快捷，又美味. </p>
+                            <div class="btns">
+                                <a href="#" data-toggle="modal" data-target="#tabModal"  class="theme-btn-s2" tabindex="0">特色菜一览</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="country-r">
+                            <div class="country-carousel owl-carousel owl-theme owl-btn-center-lr owl-dots-primary-full owl-btn-3 m-b30 wow fadeIn" data-wow-duration="2s" data-wow-delay="0.2s">
+                                @for(f in foodList){
+                                <div class="item">
+                                    <div class="service-media-bx">
+                                        <div class="destination-item">
+                                            <div class="destination-img">
+                                                <img src="data:image/jpeg;base64,
+                                                ${@Base64.getEncoder().encodeToString(f.picture)}" alt="">
+                                            </div>
+                                            <div class="destination-content">
+                                                <div class="content-left">
+                                                    <h5>${f.foodName}</h5>
+                                                    <small>${f.description}</small>
+                                                </div>
+                                                <div class="content-right">
+                                                    <h5>${f.price}元</h5>
+                                                    <span>每餐</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .酒店特色菜板块 end-->
+
+        <!--Start 客房预定板块 -->
+        <section class="Room-area-2 section-padding">
+            <div class="Room-section">
+                <div class="container">
+                    <div class="col-12">
+                        <div class="wpo-section-title">
+                            <span>酒店客房</span>
+                            <h2>客房预订</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-xs-12 sortable-gallery">
+                            <div class="gallery-filters">
+                                <ul>
+<!--                                    循环遍历后台房型-->
+                                    @for(t in AllRoomType){
+                                    <li><a data-filter=".${t.type}" href="#" class="current">${t.type}</a></li>
+                                    @}
+                                </ul>
+                            </div>
+                            <div class="gallery-container gallery-fancybox masonry-gallery">
+<!--                                循环遍历所有在售房型-->
+                                @for(e in AllRoomType){
+                                <div class="grid ${e.type}">
+                                    <div class="room-item">
+                                        <img src="data:image/jpeg;base64,
+                                        ${@Base64.getEncoder().encodeToString(e.picture)}"
+                                             alt class="img img-responsive">
+                                        <div class="room-text-show">
+                                            <h2>${e.type}</h2>
+                                        </div>
+                                        <div class="room-text-hide">
+                                            <h2>${e.type}</h2>
+<!--                                            <span>Twin Room</span>-->
+                                            <p>${e.description}</p>
+                                            <small>价格: <span>${e.price}元</span> / 日</small>
+<!--                                            <a class="theme-btn-s2" href="#">Check Availability</a>-->
+                                        </div>
+                                    </div>
+                                </div>
+                                @}
+                            </div>
+                        </div>
+                    </div> <!-- end row -->
+                </div>
+            </div>
+        </section>
+        <!--End -->
+
+        <!-- video-banner-area start-->
+
+        <div class="video-banner-area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="banner-img">
+                            <img src="/static/images/banner2.png" alt="">
+                            <ul class="banner-video">
+                                <li class="video-holder">
+                                    <a href="#" class="video-btn" data-type="iframe" tabindex="0"></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- video-banner-area end-->
+
+        <!-- 留言板块-area start -->
+        <div class="testimonial-area section-padding">
+            <div class="container">
+                <div class="col-12">
+                    <div class="wpo-section-title">
+                        <span>留言和反馈</span>
+                        <h2>顾客好评</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="msgBox">
+                            <form id="commentForm">
+                                <span>来 ， 请对酒店的服务做个评价，欢迎下载再来。</span>
+                                <div><textarea id="conBox" name="content" class=""></textarea></div>
+                                <div class="tr">
+                                    <p>
+                                        <span class="countTxt">还能输入</span><strong class="maxNum">137</strong><span>个字</span>
+
+                                        <input id="sendBtn" type="button" value="确认" class="theme-btn-s2">
+                                    </p>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="testimonial-slider clearfix">
+                            @for(c in comments){
+                            <div class="grid">
+                                <div class="ratting">
+                                    <ul>
+                                        <li><i class="fi flaticon-star"></i></li>
+                                        <li><i class="fi flaticon-star"></i></li>
+                                        <li><i class="fi flaticon-star"></i></li>
+                                        <li><i class="fi flaticon-star"></i></li>
+                                        <li><i class="fi flaticon-star"></i></li>
+                                    </ul>
+                                </div>
+                                <div class="quote">
+                                    <p>${c.content}</p>
+                                </div>
+                                <div class="client-info">
+                                    <div class="client-img">
+                                        <img src="/static/images/testimonial/img-1.jpg" alt="">
+                                    </div>
+                                    <div class="client-text">
+                                        <h5>${c.name}</h5>
+                                        <p>${c.createTime}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            @}
+                            <div class="grid">
+                                <div class="ratting">
+                                    <ul>
+                                        <li><i class="fi flaticon-star"></i></li>
+                                        <li><i class="fi flaticon-star"></i></li>
+                                        <li><i class="fi flaticon-star"></i></li>
+                                        <li><i class="fi flaticon-star"></i></li>
+                                        <li><i class="fi flaticon-star"></i></li>
+                                    </ul>
+                                </div>
+                                <div class="quote">
+                                    <p>“非常好.还会再来!”</p>
+                                </div>
+                                <div class="client-info">
+                                    <div class="client-img">
+                                        <img src="/static/images/testimonial/img-1.jpg" alt="">
+                                    </div>
+                                    <div class="client-text">
+                                        <h5>Benjir Walton</h5>
+                                        <p>新加坡客户</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid">
+                                <div class="ratting">
+                                    <ul>
+                                        <li><i class="fi flaticon-star"></i></li>
+                                        <li><i class="fi flaticon-star"></i></li>
+                                        <li><i class="fi flaticon-star"></i></li>
+                                        <li><i class="fi flaticon-star"></i></li>
+                                        <li><i class="fi flaticon-star"></i></li>
+                                    </ul>
+                                </div>
+                                <div class="quote">
+                                    <p>“非常棒.还会再来.”</p>
+                                </div>
+                                <div class="client-info">
+                                    <div class="client-img">
+                                        <img src="/static/images/testimonial/img-2.jpg" alt="">
+                                    </div>
+                                    <div class="client-text">
+                                        <h5>Jenefar Meera</h5>
+                                        <p>加拿大客户</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid">
+                                <div class="ratting">
+                                    <ul>
+                                        <li><i class="fi flaticon-star"></i></li>
+                                        <li><i class="fi flaticon-star"></i></li>
+                                        <li><i class="fi flaticon-star"></i></li>
+                                        <li><i class="fi flaticon-star"></i></li>
+                                        <li><i class="fi flaticon-star"></i></li>
+                                    </ul>
+                                </div>
+                                <div class="quote">
+                                    <p>“住的很舒服.还会再来.”</p>
+                                </div>
+                                <div class="client-info">
+                                    <div class="client-img">
+                                        <img src="/static/images/testimonial/img-3.jpg" alt="">
+                                    </div>
+                                    <div class="client-text">
+                                        <h5>Lily monalisa</h5>
+                                        <p>新加坡客户</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- testimonial-area end -->
+
+        <!-- start wpo-site-footer -->
+        <footer class="wpo-site-footer">
+                <div class="wpo-lower-footer">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col col-md-6 col-sm-6">
+                                <div class="term">
+                                    <ul>
+                                        <li><a href="#">酒店</a></li>
+                                        <li><a href="#">住宿 & 餐饮</a></li>
+                                        <li><a href="#">顾客直达</a></li>
+                                    </ul>
+                                </div>
+                            </div> 
+                            <div class="col col-md-6 col-sm-6">
+                                <p class="copyright">&copy; 2021 auto-show. </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- end wpo-site-footer -->
+    </div>
+
+
+    <!-- All JavaScript files
+    ================================================== -->
+    <script src="/static/js/jquery.min.js?v=2.1.4"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/owl.carousel.min.js"></script>
+
+    <!-- Plugins for this template -->
+    <script src="/static/js/jquery-plugin-collection.js"></script>
+
+    <script src="/static/js/bootstrap-datepicker.min.js"></script>
+
+    <!-- Custom script for this template -->
+    <script src="/static/js/plugins/layer/layer.js"></script>
+    <script src="/static/js/script.js"></script>
+<script type="application/javascript">
+    /**
+     * 灵活提交订单
+     */
+    window.submitOrder = function (formName,cBtn){
+        var formData = new FormData($("#" + formName)[0])
+        $.ajax({
+            url: "/hotelOrder/placeOrder",
+            data: formData,
+            type: 'post',
+            contentType: false,
+            processData: false,
+            success: function (data){
+                if(data.statusCode === 200){
+                    layer.msg(data.message, {icon:1});
+                    $("#" + cBtn).click();
+                }else {
+                    layer.msg("请登录后尝试提交订单", {icon:2})
+                }
+            },
+            error: function (data) {
+                layer.msg("添加失败！", {icon:2});
+            }
+        });
+    }
+
+    /**
+     * 用户提交评价
+     */
+    $("#sendBtn").on("click", function(){
+        var formData = new FormData($("#commentForm")[0])
+        $.ajax({
+            url: "/hotelComment/addComment",
+            data: formData,
+            type: 'post',
+            contentType: false,
+            processData: false,
+            success: function (data){
+                if(data.statusCode === 200){
+                    layer.msg(data.message, {icon:1,time: 2000, end:function(){
+                            location.reload()
+                        }});
+                }else {
+                    layer.msg("请登录后尝试", {icon:2})
+                }
+            },
+            error: function (data) {
+                layer.msg("添加失败！", {icon:2});
+            }
+        });
+    });
+
+</script>
+</body>
+</html>

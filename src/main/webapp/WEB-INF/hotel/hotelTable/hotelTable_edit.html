@@ -1,0 +1,30 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+            <div class="row">
+                <div class="col-sm-6 b-r">
+                            <#input id="id" name="主键id" value="${item.id}" underline="true"/>
+                            <#input id="peopleNum" name="用餐人数" value="${item.peopleNum}" underline="true"/>
+                            <#input id="status" name="餐桌状态" value="${item.status}" />
+                </div>
+
+                <div class="col-sm-6">
+                            <#input id="tabName" name="餐桌名" value="${item.tabName}" underline="true"/>
+                            <#input id="tabPrice" name="餐桌价格" value="${item.tabPrice}" />
+                </div>
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="HotelTableInfoDlg.editSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="HotelTableInfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/hotel/hotelTable/hotelTable_info.js"></script>
+@}

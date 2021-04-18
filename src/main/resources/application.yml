@@ -1,0 +1,24 @@
+# 应用名称
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: default
+  datasource:
+    name: defaultDatasource
+    url: jdbc:mysql://localhost:3306/hotel?autoReconnect=true&useUnicode=true&characterEncoding=utf8
+    username: root
+    password: root12
+
+  servlet:
+    multipart:
+      max-request-size: 100MB
+      max-file-size: 100MB
+
+mybatis-plus:
+  typeAliasesPackage: com.manage.hotel.entity
+
+---
+
+

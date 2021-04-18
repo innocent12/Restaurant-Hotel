@@ -1,0 +1,36 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+            <div class="row">
+                <div class="col-sm-6 b-r">
+                            <#input id="id" name="主键id" value="${item.id}" underline="true"/>
+                            <#input id="orderName" name="订单名" value="${item.orderName}" underline="true"/>
+                            <#input id="name" name="用户名字" value="${item.name}" underline="true"/>
+                    <#select id="status" name="订单状态" value="${item.status}" underline="true"/>
+                            <#input id="cardId" name="身份证号" value="${item.cardid}" underline="true"/>
+                            <#input id="tabId" name="餐桌号" value="${item.tabId}" />
+                </div>
+
+                <div class="col-sm-6">
+                            <#input id="roomId" name="客房号" value="${item.roomId}" underline="true"/>
+                    <#select id="orderType" name="订单类型" value="${item.orderType}" underline="true"/>
+                            <#input id="subscribeTime" name="到店时间" value="${item.subscribeTime}" underline="true"/>
+                            <#input id="departTime" name="离店时间" value="${item.departTime}" underline="true"/>
+                            <#input id="createTime" name="订单创建时间" value="${item.createTime}" />
+                </div>
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="HotelOrderInfoDlg.editSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="HotelOrderInfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/hotel/hotelOrder/hotelOrder_info.js"></script>
+@}

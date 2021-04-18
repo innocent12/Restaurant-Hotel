@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="/static/css/bootstrap.min.css">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+</head>
+<body>
+<div class="container">
+    <h2 align="center">V酒店新用户注册</h2>
+    <form id="signForm" action="/hotelUser/add" method="post">
+        <div class="form-group">
+            <label class="control-label" for="data-name">用户名</label>
+            <input type="text" class="form-control" name="name" placeholder="用户名(唯一)" id="data-name">
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="data-phone">手机号码</label>
+            <input type="number" class="form-control" id="data-phone" name="phone" placeholder="手机号">
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="data-email">邮箱</label>
+            <input type="email" class="form-control" id="data-email" name="email" placeholder="邮箱">
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="data-cardId">密码</label>
+            <input type="password" class="form-control" id="data-cardId" name="password" placeholder="密码">
+        </div>
+        <button type="button" id="registerBtn" class="btn btn-primary">注册</button>
+    </form>
+</div>
+
+<script src="/static/js/jquery.min.js?v=2.1.4"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/plugins/layer/layer.js"></script>
+<!--<script src="/static/js/script.js"></script>-->
+<script>
+    /**
+     *  注册用户，提交表单
+     */
+    $("#registerBtn").on("click", function (){
+        var formData = new FormData($("#signForm")[0])
+        $.ajax({
+            url: "/hotelUser/add",
+            data: formData,
+            type: 'post',
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                if (data.message === 'exist'){
+                    layer.msg('已存在该用户',{icon:2});
+                }else {
+                    layer.msg('添加成功',{icon:1,time:3000,end:function (){
+                            var index1 = parent.layer.getFrameIndex(window.name)
+                            parent.layer.close(index1)
+                        }});
+                }
+            },
+            error: function (data){
+                layer.msg("添加失败！", {icon:2});
+            }
+        })
+    });
+</script>
+</body>
+</html>
