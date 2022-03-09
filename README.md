@@ -1,6 +1,12 @@
 # 工程简介
 实体类表结构设计:
 
+### B站up号
+[关注我吧](https://space.bilibili.com/385873520/video)
+
+#### 演示视频
+[B站视频演示](https://www.bilibili.com/video/BV1du411Q7Rj?spm_id_from=333.999.0.0)
+
 用户（user）
 	普通用户
 	管理员
